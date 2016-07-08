@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER igor.subborin.dev@gmail.com
+MAINTAINER igor.subbotin.dev@gmail.com
 
 # Install Node...
 RUN apt-get install -y npm
