@@ -4,6 +4,6 @@ deployment:
     commands:
       - $DOCKER_HUB_TRIGGER
 
-test:
+tests:
   override:    
     - mocha
