@@ -5,11 +5,15 @@ MAINTAINER igor.subbotin.dev@gmail.com
 # RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 #    && apt-get install -y nodejs build-essential
 # RUN apt-get install -y npm
-RUN git clone git://github.com/creationix/nvm.git ~/nvm \
+RUN apt-get update \
+    && apt-get install -y curl \
+    && apt-get install -y git \
+    && git clone https://github.com/creationix/nvm.git ~/nvm \
     && . ~/nvm/nvm.sh \
     && nvm install 4.4.5 \
     && nvm use 4.4.5 \
-    && nvm alias default 4.4.5
+    && nvm alias default 4.4.5 \
+    && apt-get install -y npm
 
 # Copy app to /src
 COPY . /src
