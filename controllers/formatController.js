@@ -1,27 +1,35 @@
-var formatController = function(Book) {
+var formatController = function() {
+    var formatService = require("../services/formatService")();
+    var uriList = require("../helpers/uriList");
+    
     var get = function(req, res) {
-        var query = {};
-        if (req.query.genre) {
-            query.genre = req.query.genre;
+        var formats = formatService.getAll();
+        var returnFormats = [];
+        for (var k in formats) {
+            var newFormat = formats[k].clone();
+            newFormat.links = {};
+            newFormat.links.self = encodeURI('http://' + req.headers.host + uriList.formatUri + "/" + newFormat.id);
+            returnFormats.push(newFormat);
         }
-        Book.find(query, function(err, books) {
-            if (err) {
-                res.status(500).send(err);
-            } else {
-                var returnBooks = [];
-                books.forEach(function(element, index, array) {
-                    var newBook = element.toJSON();
-                    newBook.links = {};
-                    newBook.links.self = 'http://' + req.headers.host + "/api/books/" + newBook._id;
-                    returnBooks.push(newBook);
-                });
-                res.json(returnBooks);
-            }
-        });
+        
+        res.json(returnFormats);
+    };
+    
+    var getById = function(req, res) {
+        var format = formatService.getById(req.params.formatId);
+        if (format) {
+            var returnFormat = format.clone();
+            returnFormat.links = {};
+            returnFormat.links.GetPluginById = encodeURI('http://' + req.headers.host + uriList.pluginUri + "/" + returnFormat.pluginId); 
+            res.json(returnFormat);
+        } else {
+            res.status(404).send('no format found');
+        }
     };
     
     return {
-        get: get
+        get: get,
+        getById: getById
     };
 };
 
