@@ -5,7 +5,7 @@ var uriList = require("./helpers/uriList");
     
 var app = express();
 
-var port = process.env.PORT;
+var port = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
