@@ -12,9 +12,10 @@ app.use(bodyParser.json());
 
 var formatRouter = require("./routes/formatRoutes")();
 app.use(uriList.formatUri, formatRouter);
-
 var pluginRouter = require("./routes/pluginRoutes")();
 app.use(uriList.pluginUri, pluginRouter);
+var convertRouter = require("./routes/convertRoutes")();
+app.use(uriList.convertUri, convertRouter);
 
 app.get('/', function(req, res) {
    res.send('Converter service API'); 
