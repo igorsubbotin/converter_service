@@ -1,5 +1,5 @@
 var formatService = function() {
-    var Format = require("../models/formatModel");
+    var Format = require("../models/models").format;
     var fileHelper = require("../helpers/fileHelper")();
     
     var formats = {

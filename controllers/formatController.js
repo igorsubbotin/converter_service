@@ -7,7 +7,7 @@ var formatController = function() {
         returnFormat.links = {};
         returnFormat.links.self = encodeURI('http://' + req.headers.host + uriList.formatUri + "/" + returnFormat.id);
         return returnFormat;
-    }
+    };
     
     var get = function(req, res) {
         if (req.query.fileName) {
