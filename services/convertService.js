@@ -1,5 +1,3 @@
-var Convert = require("../models/convertModel");
-
 var convertService = function() {
     var getAll = function() {
         return {};
