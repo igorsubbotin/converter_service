@@ -1,11 +1,12 @@
 var convertService = function() {
     var Convert = require("../models/models").convert;
+    var pluginService = require("./pluginService")();
     
     var convert = function(fileName, pluginId, options) {
-        var convert = new Convert(fileName, pluginId, options);
-        convert.success = false;
-        convert.error = 'Operation is not implemented';
-        return convert;
+        var result = new Convert(fileName, pluginId, options);
+        var handler = pluginService.getConvertHandler(pluginId);
+        handler(result);
+        return result;
     };
     
     return {
