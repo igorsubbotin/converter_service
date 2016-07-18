@@ -31,7 +31,7 @@ var pluginService = function() {
     return {
         getAll: getAll,
         getById: getById,
-        getConvertHandler: 
+        getConvertHandler: getConvertHandler
     };
 };
 
