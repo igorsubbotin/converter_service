@@ -1,6 +1,6 @@
 var express = require("express");
 
-var routes = function(Format) {
+var routes = function() {
     var pluginRouter = express.Router();
     var pluginController = require("../controllers/pluginController")();
     pluginRouter.route('/').get(pluginController.get);

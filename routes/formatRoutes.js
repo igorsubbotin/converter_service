@@ -1,6 +1,6 @@
 var express = require("express");
 
-var routes = function(Format) {
+var routes = function() {
     var formatRouter = express.Router();
     var formatController = require("../controllers/formatController")();
     formatRouter.route('/').get(formatController.get);
