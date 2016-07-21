@@ -3,7 +3,9 @@ var convertController = function() {
     
     var post = function(req, res) {
         var convert = convertService.convert(req.body.fileName, req.body.pluginId, req.body.options);
-        res.json(convert);
+        convert.then(value => {
+            res.json(value);
+        });
     };
     
     return {

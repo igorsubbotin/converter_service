@@ -1,7 +1,10 @@
 var path = require("path");
+var AWS = require("aws-sdk");
 
 var fileHelper = function()
 {
+    var s3 = new AWS.S3();
+    
     var getExtension = function(fileName) {
         var extension = path.extname(fileName);
         var basename = path.basename(fileName, extension);
@@ -10,8 +13,28 @@ var fileHelper = function()
         return extension;
     };
     
+    var loadFile = function(fileName, type, handler) {
+        s3.getObject({ Bucket: 'import-convertation', Key: fileName }, function(err, data) {
+            if (err) { console.log(err) }
+            else {
+                handler(err, data.Body.toString(type));
+            }
+        });
+    };
+    
+    var saveFile = function(fileName, data, handler) {
+        s3.putObject({ Bucket: 'import-convertation', Key: fileName, Body: data }, function(err, data) {
+            if (err) { console.log(err); }
+            else {
+                handler(err);
+            }
+        });
+    };
+    
     return {
-        getExtension: getExtension
+        getExtension: getExtension,
+        loadFile: loadFile,
+        saveFile: saveFile
     };
 };
 

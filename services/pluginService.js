@@ -14,10 +14,10 @@ var pluginService = function() {
     plugins[pluginIds.XML] = new Plugin(pluginIds.XML, 'XML Spreadsheet', [options.header]);
     plugins[pluginIds.Excel] = new Plugin(pluginIds.Excel, 'Excel', [options.header]);
     
-    var pluginHandlers = {}
-    pluginHandlers[pluginIds.CSV] = require("./plugins/csvConverter")
-    pluginHandlers[pluginIds.XML] = require("./plugins/excelConverter")
-    pluginHandlers[pluginHandlers.Excel] = require("./plugins/excelConverter")
+    var pluginHandlers = {};
+    pluginHandlers[pluginIds.CSV] = require("./plugins/csvConverter");
+    pluginHandlers[pluginIds.XML] = require("./plugins/excelConverter");
+    pluginHandlers[pluginIds.Excel] = require("./plugins/excelConverter");
 
     var getAll = function() {
         return plugins;
@@ -26,7 +26,7 @@ var pluginService = function() {
         return plugins[id];
     };
     var getConvertHandler = function(id) {
-          
+        return pluginHandlers[id];
     };
     return {
         getAll: getAll,
