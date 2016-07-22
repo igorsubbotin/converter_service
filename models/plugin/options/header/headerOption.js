@@ -1,5 +1,6 @@
 var optionTypes = require("../optionTypes");
 var optionUiTypes = require("../optionUiTypes");
+var types = require("./types");
 
 function HeaderOption() {
     this.title = 'Does your file contain column headers in the first row?';
@@ -7,7 +8,7 @@ function HeaderOption() {
     this.uiType = optionUiTypes.checkBox;
     this.values = [
         {
-            type: 0,
+            type: types.hasHeaderRow,
             name: 'First row is a header',
             value: true,
             isDefault: true
