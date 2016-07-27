@@ -2,7 +2,7 @@ FROM node:4.4.7-onbuild
 
 MAINTAINER igor.subbotin.dev@gmail.com
 
-# Copy app to /src
+# Copy app to /src 
 COPY . /src
 
 # Install app and dependencies into /src
