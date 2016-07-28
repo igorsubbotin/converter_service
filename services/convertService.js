@@ -9,6 +9,7 @@ var convertService = function() {
         return new Promise((resolve, reject) => {
             convert(result, function (err) {
                 if (err) {
+                    console.log(err);
                     result.success = false;
                     result.error = 'Unable to convert file';
                     reject(err);

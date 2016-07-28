@@ -17,6 +17,7 @@ var fileHelper = function()
         s3.getObject({ Bucket: 'import-convertation', Key: fileName }, function(err, data) {
             if (err) { console.log(err) }
             else {
+                console.log("File loaded from AWS", fileName, type);
                 handler(err, data.Body.toString(type));
             }
         });
@@ -26,6 +27,7 @@ var fileHelper = function()
         s3.putObject({ Bucket: 'import-convertation', Key: fileName, Body: data }, function(err, data) {
             if (err) { console.log(err); }
             else {
+                console.log("File saved to AWS", fileName);
                 handler(err);
             }
         });

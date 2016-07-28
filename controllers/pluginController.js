@@ -3,6 +3,8 @@ var pluginController = function() {
     var uriList = require("../helpers/uriList");
     
     var get = function(req, res) {
+        console.log("Plugin controller <GET>");
+        console.log(req);
         var plugins = pluginService.getAll();
         var returnPlugins = [];
         for (var k in plugins) {
@@ -13,12 +15,16 @@ var pluginController = function() {
         }
         
         res.json(returnPlugins);
+        console.log(res);
     };
     
     var getById = function(req, res) {
+        console.log("Plugin controller <GET> by id");
+        console.log(req);
         var plugin = pluginService.getById(req.params.pluginId);
         if (plugin) {
             res.json(plugin);
+            console.log(res);
         } else {
             res.status(404).send('no plugin found');
         }
