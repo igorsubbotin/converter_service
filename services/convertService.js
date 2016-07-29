@@ -17,6 +17,7 @@ var convertService = function() {
                 else {
                     result.success = true;
                     result.resultFileName = result.fileName + "_output";
+                    console.log("File converted: ", result);
                     resolve(result);
                 }
             });
