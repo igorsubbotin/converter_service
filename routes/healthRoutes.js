@@ -4,7 +4,6 @@ var routes = function() {
     var healthRouter = express.Router();
     healthRouter.route('/').get(
         function(req, res) { 
-            console.log('Health requested')
             res.json(
                 { 
                     status: "OK"
