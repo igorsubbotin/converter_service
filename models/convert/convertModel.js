@@ -14,4 +14,8 @@ module.exports = function Convert(fileName, pluginId, options, error, success, r
         });
         return new Convert(this.fileName, this.pluginId, clonedOptions, this.error, this.success, this.resultFileName, this.hasHeaderRow);
     };
+    
+    this.toLog = function() {
+        return "fileName:" + this.fileName + ", pluginId:" + this.pluginId + ", error:" + this.error + ", resultFileName:" + this.resultFileName + ", hasHeaderRow:" + this.hasHeaderRow;
+    };
 };
