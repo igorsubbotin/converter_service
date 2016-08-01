@@ -16,7 +16,7 @@ var pluginService = function() {
     
     var pluginHandlers = {};
     pluginHandlers[pluginIds.CSV] = require("./plugins/csvConverter");
-    pluginHandlers[pluginIds.XML] = require("./plugins/excelConverter");
+    pluginHandlers[pluginIds.XML] = require("./plugins/xmlConverter");
     pluginHandlers[pluginIds.Excel] = require("./plugins/excelConverter");
 
     var getAll = function() {
