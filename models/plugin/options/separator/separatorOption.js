@@ -11,7 +11,7 @@ function SeparatorOption() {
     this.values = [separatorComma, separatorSemicolon, separatorTab];
     
     this.clone = function() {
-        return option;
+        return new SeparatorOption();
     };
 }
 

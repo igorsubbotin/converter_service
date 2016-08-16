@@ -9,7 +9,7 @@ function SeparatorTab() {
     this.clone = function() {
         return new SeparatorTab();
     };
-};
+}
 
 var optionValue = new SeparatorTab();
 

@@ -7,7 +7,7 @@ function DateFormatAutomatically() {
     this.isDefault = true;
     
     this.clone = function() {
-        return optionValue;
+        return new DateFormatAutomatically();
     };
 }
 

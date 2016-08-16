@@ -20,6 +20,8 @@ var pluginRouter = require("./routes/pluginRoutes")();
 app.use(uriList.pluginUri, pluginRouter);
 var convertRouter = require("./routes/convertRoutes")();
 app.use(uriList.convertUri, convertRouter);
+var optionRouter = require("./routes/optionRoutes")();
+app.use(uriList.optionUri, optionRouter);
 var healthRouter = require("./routes/healthRoutes")();
 app.use(uriList.healthUri, healthRouter);
 

@@ -7,7 +7,7 @@ function DateFormatMonthDayYear() {
     this.isDefault = false;
     
     this.clone = function() {
-        new DateFormatMonthDayYear();
+        return new DateFormatMonthDayYear();
     };
 }
 

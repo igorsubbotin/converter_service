@@ -15,7 +15,7 @@ function HeaderOption() {
         }];
     
     this.clone = function() {
-        return option;
+        return new HeaderOption();
     };
 }
 

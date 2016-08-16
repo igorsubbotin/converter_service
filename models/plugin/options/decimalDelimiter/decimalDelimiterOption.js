@@ -10,7 +10,7 @@ function DecimalDelimiterOption() {
     this.values = [decimalDelimiterDot, decimalDelimiterComma];
     
     this.clone = function() {
-        return option;
+        return new DecimalDelimiterOption();
     };
 }
 
