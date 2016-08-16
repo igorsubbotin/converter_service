@@ -10,7 +10,7 @@ var formatController = function() {
     };
     
     var get = function(req, res) {
-        console.log("Format controller <GET>");
+        console.log("<GET> Get all formats");
         if (req.query.fileName) {
             res.json(this.getReturnFormat(formatService.getByFileName(req.query.fileName), req));
         } else {
@@ -24,8 +24,9 @@ var formatController = function() {
     };
     
     var getById = function(req, res) {
-        console.log("Format controller <GET> by Id");
-        var format = formatService.getById(req.params.formatId);
+        var formatId = req.params.formatId;
+        console.log("<GET> Get format by id: " + formatId);
+        var format = formatService.getById(formatId);
         if (format) {
             res.json(this.getReturnFormat(format, req));
         } else {

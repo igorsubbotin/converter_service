@@ -3,7 +3,7 @@ var optionController = function() {
     var uriList = require("../helpers/uriList");
     
     var get = function(req, res) {
-        console.log("Option controller <GET>");
+        console.log("<GET> Get all options");
         var options = optionService.getAll();
         var returnOptions = [];
         for (var k in options) {
@@ -17,8 +17,9 @@ var optionController = function() {
     };
     
     var getById = function(req, res) {
-        console.log("Option controller <GET> by id: ");
-        var option = optionService.getById(req.params.optionId);
+        var optionId = req.params.optionId;
+        console.log("<GET> Get option by id: " + optionId);
+        var option = optionService.getById(optionId);
         if (option) {
             res.json(option);
         } else {
