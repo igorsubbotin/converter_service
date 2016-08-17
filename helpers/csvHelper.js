@@ -19,8 +19,21 @@ var csvHelper = function() {
         return res == 0;
     };
     
+    var addFakeHeaderRow = function(csv) {
+        var split = csv.split(/\r?\n/);
+        if (split.length == 0) {
+            return csv;
+        }
+        var columns = [];
+        for (var i = 0; i < split[0].split(',').length; i++) {
+            columns.push("Column " + i);
+        }
+        return columns.join(',') + "\n" + csv;
+    };
+    
     return {
-        removeEmptyRows: removeEmptyRows
+        removeEmptyRows: removeEmptyRows,
+        addFakeHeaderRow: addFakeHeaderRow
     };
 };
 

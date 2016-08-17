@@ -9,6 +9,9 @@ var convert = function(model, handler) {
         var workbook = xlsx.read(data, {type:'base64'});
         var csv = xlsx.utils.sheet_to_csv(workbook.Sheets[workbook.SheetNames[0]]);
         csv = csvHelper.removeEmptyRows(csv);
+        if (!model.hasHeaderRow) {
+            csv = csvHelper.addFakeHeaderRow(csv);
+        }
         model.resultFileName = model.fileName +"_output";
         fileHelper.saveFile(model.resultFileName, csv, function(err, data) { handler(err) });
     });

@@ -12,6 +12,7 @@
     "gulp-nodemon": "^2.1.0",
     "should": "^9.0.2",
     "sinon": "^1.17.4",
+    "strip-bom": "^3.0.0",
     "xlsx": "^0.8.0"
   },
   "devDependencies": {
