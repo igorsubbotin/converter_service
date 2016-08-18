@@ -40,4 +40,4 @@ var fileHelper = function()
     };
 };
 
-module.exports = fileHelper;
+module.exports = fileHelper();

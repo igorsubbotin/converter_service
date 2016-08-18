@@ -6,4 +6,4 @@ deployment:
 
 test:
   override:    
-    - mocha ./tests
+    - mocha ./test

@@ -1,8 +1,9 @@
-var formatUri = '/api/formats';
-var pluginUri = '/api/plugins';
-var convertUri = '/api/converts';
-var optionUri = '/api/options';
-var healthUri = '/api/health';
+var v1prefix = '/api';
+var formatUri = v1prefix + '/formats';
+var pluginUri = v1prefix + '/plugins';
+var convertUri = v1prefix + '/converts';
+var optionUri = v1prefix + '/options';
+var healthUri = v1prefix + '/health';
 
 module.exports.formatUri = formatUri;
 module.exports.pluginUri = pluginUri;
