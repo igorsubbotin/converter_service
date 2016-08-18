@@ -3,7 +3,7 @@ var types = require("./types");
 function SeparatorTab() {
     this.type = types.tab;
     this.name = 'Tab';
-    this.value = 'TabDelimited';
+    this.value = '\t';
     this.isDefault = false;
     
     this.clone = function() {

@@ -6,10 +6,13 @@
   "dependencies": {
     "aws-sdk": "^2.4.7",
     "body-parser": "^1.15.2",
+    "csv-stringify": "^1.0.4",
     "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-mocha": "^2.2.0",
     "gulp-nodemon": "^2.1.0",
+    "js-csvparser": "^1.5.0",
+    "moment": "^2.14.1",
     "should": "^9.0.2",
     "sinon": "^1.17.4",
     "strip-bom": "^3.0.0",

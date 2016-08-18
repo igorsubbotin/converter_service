@@ -3,7 +3,7 @@ var types = require("./types");
 function SeparatorSemicolon() {
     this.type = types.semicolon;
     this.name = 'Semicolon (;)';
-    this.value = 'Delimited(;)';
+    this.value = ';';
     this.isDefault = false;
     
     this.clone = function() {

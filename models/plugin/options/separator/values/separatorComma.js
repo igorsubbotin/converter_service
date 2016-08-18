@@ -3,7 +3,7 @@ var types = require("./types");
 function SeparatorComma() {
     this.type = types.comma;
     this.name = 'Comma (,)';
-    this.value = 'Delimited(,)';
+    this.value = ',';
     this.isDefault = true;
     
     this.clone = function() {

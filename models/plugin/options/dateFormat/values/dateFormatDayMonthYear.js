@@ -3,7 +3,7 @@ var types = require("./types");
 function DateFormatDayMonthYear() {
     this.type = types.dayMonthYear;
     this.name = 'Day / Month / Year';
-    this.value = 'dd/MM/yyyy';
+    this.value = 'd/mm/yyyy';
     this.isDefault = false;
     
     this.clone = function() {
