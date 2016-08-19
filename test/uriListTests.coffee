@@ -1,21 +1,26 @@
 should = require "should"
 uriList = require "../helpers/uriList"
 
-v1prefix = "/api"
+v1prefix = "/v1"
 
 describe "uriList Tests", -> 
-    it "formatUri should be correct", ->
-        uriList.formatUri.should.equal(v1prefix + "/formats")
+    describe "formatUri", ->
+        it "is correct", ->
+            uriList.formatUri.should.equal(v1prefix + "/formats")
+            
+    describe "pluginUri", ->
+        it "is correct", ->
+            uriList.pluginUri.should.equal(v1prefix + "/plugins")
     
-    it "pluginUri should be correct", ->
-        uriList.pluginUri.should.equal(v1prefix + "/plugins")
+    describe "convertUri", ->
+        it "is correct", ->
+            uriList.convertUri.should.equal(v1prefix + "/converts")
         
-    it "convertUri should be correct", ->
-        uriList.convertUri.should.equal(v1prefix + "/converts")
+    describe "optionUri", ->
+        it "is correct", ->
+            uriList.optionUri.should.equal(v1prefix + "/options")
         
-    it "optionUri should be correct", ->
-        uriList.optionUri.should.equal(v1prefix + "/options")
-        
-    it "healthUri should be correct", ->
-        uriList.healthUri.should.equal(v1prefix + "/health")
+    describe "healthUri", ->
+        it "is correct", ->
+            uriList.healthUri.should.equal(v1prefix + "/health")
     

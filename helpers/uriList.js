@@ -1,4 +1,4 @@
-var v1prefix = '/api';
+var v1prefix = '/v1';
 var formatUri = v1prefix + '/formats';
 var pluginUri = v1prefix + '/plugins';
 var convertUri = v1prefix + '/converts';

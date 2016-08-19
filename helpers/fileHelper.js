@@ -1,4 +1,5 @@
 var path = require("path");
+var assert = require("assert");
 var AWS = require("aws-sdk");
 
 var fileHelper = function()
@@ -14,6 +15,9 @@ var fileHelper = function()
     };
     
     var loadFile = function(fileName, type, handler) {
+        assert.ok(fileName, "fileName required");
+        assert.ok(type, "type required");
+        
         s3.getObject({ Bucket: 'import-convertation', Key: fileName }, function(err, data) {
             if (err) { console.log(err) }
             else {
@@ -24,6 +28,9 @@ var fileHelper = function()
     };
     
     var saveFile = function(fileName, data, handler) {
+        assert.ok(fileName, "fileName required");
+        assert.ok(data, "data required");
+        
         s3.putObject({ Bucket: 'import-convertation', Key: fileName, Body: data }, function(err, data) {
             if (err) { console.log(err); }
             else {
