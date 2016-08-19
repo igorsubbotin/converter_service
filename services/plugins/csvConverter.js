@@ -39,7 +39,7 @@ var convert = function(model, handler) {
                 output += row;
             }
         });
-        stringifier.on('error', function(err){
+        stringifier.on('error', function(err) {
           console.log(err.message);
         });
         for (var i = 0; i < records.data.length; i++) {

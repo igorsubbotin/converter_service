@@ -26,7 +26,7 @@ var csvHelper = function() {
         }
         var columns = [];
         for (var i = 0; i < split[0].split(',').length; i++) {
-            columns.push("Column " + i);
+            columns.push("Column " + (i + 1));
         }
         return columns.join(',') + "\n" + csv;
     };
