@@ -13,14 +13,13 @@
     "gulp-nodemon": "^2.1.0",
     "js-csvparser": "^1.5.0",
     "moment": "^2.14.1",
-    "should": "^9.0.2",
-    "sinon": "^1.17.4",
     "strip-bom": "^3.0.0",
     "xlsx": "^0.8.0"
   },
   "devDependencies": {
     "coffee": "^3.2.5",
     "gulp-env": "^0.4.0",
+    "should": "^11.1.0",
     "sinon": "^1.17.5",
     "supertest": "^1.2.0"
   },

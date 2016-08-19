@@ -1,3 +1,5 @@
+var Options = require("./options/optionsModel")
+
 function parseDateFormat(value)
 {
     var dateFormatAutomatically = require("./options/dateFormat/values/dateFormatAutomatically");
@@ -59,7 +61,7 @@ function parseSeparator(value)
 
 var parseOptions = function(options) 
 {
-    var result = { dateFormat: 'auto', decimalDelimiter: 'auto', header: false, separator: 'auto' };
+    var result = new Options();
     var optionTypes = require("./options/optionTypes");
     for (var i = 0; i < options.length; i++) {
         var option = options[i];

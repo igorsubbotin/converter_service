@@ -8,11 +8,7 @@ module.exports = function Convert(fileName, pluginId, options, error, success, r
     this.hasHeaderRow = options.header;
     
     this.clone = function() {
-        var clonedOptions = [];
-        this.options.forEach(function(element, index, array) {
-            clonedOptions.push(element.clone());
-        });
-        return new Convert(this.fileName, this.pluginId, clonedOptions, this.error, this.success, this.resultFileName);
+        return new Convert(this.fileName, this.pluginId, this.options.clone(), this.error, this.success, this.resultFileName);
     };
     
     this.toLog = function() {
