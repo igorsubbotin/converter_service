@@ -15,7 +15,9 @@ describe "Convert Model Tests", ->
             success: true,
             resultFileName: "output.csv"
         }        
-        convert = new Convert(data.fileName, data.pluginId, data.options, data.error, data.success, data.resultFileName)
+        convert = new Convert(
+            data.fileName, data.pluginId, data.options, data.error, 
+            data.success, data.resultFileName)
     
     describe "Creation", ->
         it "creates a model instance with correct properties", ->
@@ -43,5 +45,10 @@ describe "Convert Model Tests", ->
             clone.resultFileName.should.equal(convert.resultFileName)
             clone.hasHeaderRow.should.equal(convert.options.header)
             
-            
-    
+    describe "toLog", ->
+        it "returns valid string", ->
+            convert.toLog().should.equal(
+                "fileName:" + convert.fileName + ", pluginId:" + 
+                convert.pluginId + ", error:" + convert.error + 
+                ", resultFileName:" + convert.resultFileName + 
+                ", hasHeaderRow:" + convert.hasHeaderRow)
