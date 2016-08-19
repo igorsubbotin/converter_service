@@ -1,5 +1,5 @@
 should = require "should"
-fileHelper = require "../helpers/fileHelper"
+fileHelper = require "../../helpers/fileHelper"
 
 describe "fileHelper Tests", -> 
     describe "getExtension", -> 

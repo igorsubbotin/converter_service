@@ -1,6 +1,6 @@
 should = require "should"
-Convert = require("../models/models").convert;
-Options = require("../models/plugin/options/optionsModel")
+Convert = require("../../models/models").convert;
+Options = require("../../models/plugin/options/optionsModel")
 
 describe "Convert Model Tests", ->
     convert = null

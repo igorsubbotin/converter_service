@@ -1,5 +1,5 @@
 should = require "should"
-uriList = require "../helpers/uriList"
+uriList = require "../../helpers/uriList"
 
 v1prefix = "/v1"
 

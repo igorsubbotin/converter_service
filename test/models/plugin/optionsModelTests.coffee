@@ -1,5 +1,5 @@
 should = require "should"
-Options = require("../models/plugin/options/optionsModel");
+Options = require("../../../models/plugin/options/optionsModel");
 
 describe "Options Model Tests", ->
     options = null

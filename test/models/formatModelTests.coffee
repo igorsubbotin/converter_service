@@ -1,5 +1,5 @@
 should = require "should"
-Format = require("../models/format/formatModel")
+Format = require("../../models/format/formatModel")
 
 describe "Format Model Tests", ->
     format = null
