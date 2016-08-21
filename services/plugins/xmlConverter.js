@@ -1,5 +1,5 @@
 var xlsx = require("xlsx");
-var fileHelper = require("../../helpers/fileHelper")();
+var fileHelper = require("../../helpers/fileHelper");
 var csvHelper = require("../../helpers/csvHelper");
 var stripBom = require('strip-bom');
 
