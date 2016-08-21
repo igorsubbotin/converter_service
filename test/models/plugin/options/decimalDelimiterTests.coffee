@@ -42,10 +42,10 @@ describe "Decimal Delimiter tests", ->
         }
         
         it "has a model with correct properties", ->
-            decimalDelimiterComma.type.should.equal(data.type, "type")
-            decimalDelimiterComma.name.should.equal(data.name, "name")
-            decimalDelimiterComma.value.should.equal(data.value, "value")
-            decimalDelimiterComma.isDefault.should.equal(data.isDefault, "isDefault")
+            decimalDelimiterComma.type.should.equal(data.type)
+            decimalDelimiterComma.name.should.equal(data.name)
+            decimalDelimiterComma.value.should.equal(data.value)
+            decimalDelimiterComma.isDefault.should.equal(data.isDefault)
             
         it "clones a new object", ->
             clone = decimalDelimiterComma.clone()
@@ -54,10 +54,10 @@ describe "Decimal Delimiter tests", ->
             
         it "clones an object with properties equal to source object", ->
             clone = decimalDelimiterComma.clone()
-            clone.type.should.equal(data.type, "type")
-            clone.name.should.equal(data.name, "name")
-            clone.value.should.equal(data.value, "value")
-            clone.isDefault.should.equal(data.isDefault, "isDefault")
+            clone.type.should.equal(data.type)
+            clone.name.should.equal(data.name)
+            clone.value.should.equal(data.value)
+            clone.isDefault.should.equal(data.isDefault)
             
     describe "DecimalDelimiterDot", ->
         data = {
@@ -68,10 +68,10 @@ describe "Decimal Delimiter tests", ->
         }
         
         it "has a model with correct properties", ->
-            decimalDelimiterDot.type.should.equal(data.type, "type")
-            decimalDelimiterDot.name.should.equal(data.name, "name")
-            decimalDelimiterDot.value.should.equal(data.value, "value")
-            decimalDelimiterDot.isDefault.should.equal(data.isDefault, "isDefault")
+            decimalDelimiterDot.type.should.equal(data.type)
+            decimalDelimiterDot.name.should.equal(data.name)
+            decimalDelimiterDot.value.should.equal(data.value)
+            decimalDelimiterDot.isDefault.should.equal(data.isDefault)
             
         it "clones a new object", ->
             clone = decimalDelimiterDot.clone()
@@ -80,7 +80,7 @@ describe "Decimal Delimiter tests", ->
             
         it "clones an object with properties equal to source object", ->
             clone = decimalDelimiterDot.clone()
-            clone.type.should.equal(data.type, "type")
-            clone.name.should.equal(data.name, "name")
-            clone.value.should.equal(data.value, "value")
-            clone.isDefault.should.equal(data.isDefault, "isDefault")
+            clone.type.should.equal(data.type)
+            clone.name.should.equal(data.name)
+            clone.value.should.equal(data.value)
+            clone.isDefault.should.equal(data.isDefault)
