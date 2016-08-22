@@ -7,6 +7,8 @@ var fileHelper = function()
     var s3 = new AWS.S3();
     
     var getExtension = function(fileName) {
+        assert.ok(fileName, "fileName required");
+        
         var extension = path.extname(fileName);
         var basename = path.basename(fileName, extension);
         extension = path.extname(basename) + extension;

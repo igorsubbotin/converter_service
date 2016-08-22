@@ -1,5 +1,6 @@
 should = require "should"
 fileHelper = require "../../helpers/fileHelper"
+assert = require "assert"
 
 describe "fileHelper Tests", -> 
     describe "getExtension", -> 
@@ -15,8 +16,8 @@ describe "fileHelper Tests", ->
         it "does not extract anything for fileName without extension", ->
             fileHelper.getExtension("test").should.equal("")
             
-        it "does not fail on empty input", ->
-            fileHelper.getExtension(null).should.equal("")
+        it "fails on empty input", ->
+            assert.throws(fileHelper.getExtension, assert.AssertionError)
             
         it "does not fail on '.' input", ->
             fileHelper.getExtension(".").should.equal("")
