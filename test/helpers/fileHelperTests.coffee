@@ -17,7 +17,8 @@ describe "fileHelper Tests", ->
             fileHelper.getExtension("test").should.equal("")
             
         it "fails on empty input", ->
-            assert.throws(fileHelper.getExtension, assert.AssertionError)
+            # assert.throws(fileHelper.getExtension, assert.AssertionError)
+            fileHelper.getExtension.should.throw(assert.AssertionError)
             
         it "does not fail on '.' input", ->
             fileHelper.getExtension(".").should.equal("")
