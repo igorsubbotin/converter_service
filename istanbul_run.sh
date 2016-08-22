@@ -1,1 +1,1 @@
-istanbul --include-all-sources cover _mocha
+istanbul cover _mocha --include-all-sources
