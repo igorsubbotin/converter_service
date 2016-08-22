@@ -1,6 +1,6 @@
 var formatService = function() {
     var Format = require("../models/models").format;
-    var fileHelper = require("../helpers/fileHelper");
+    var getExtension = require("../helpers/getExtension");
     
     var formats = {
         'CSV': new Format('CSV', 'CSV format', 'csv', '463B46AF-C612-4e53-8E0F-63FD23B3679F'),
@@ -28,7 +28,7 @@ var formatService = function() {
     };
     
     var getByFileName = function(fileName) {
-        var extension = fileHelper.getExtension(fileName);
+        var extension = getExtension(fileName);
         return formatsByExtension[extension];
     };
     
