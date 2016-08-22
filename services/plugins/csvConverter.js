@@ -1,4 +1,4 @@
-var fileHelper = require("../../helpers/fileHelper");
+var fileHelper = require("../../configuration/getFileHelper")();
 var csvHelper = require("../../helpers/csvHelper");
 var csvparse = require('js-csvparser');
 var stringify = require('csv-stringify');

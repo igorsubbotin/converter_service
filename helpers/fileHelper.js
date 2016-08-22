@@ -1,40 +1,31 @@
 var assert = require("assert");
-var AWS = require("aws-sdk");
 
-var fileHelper = function()
+var fileHelper = function(fileAdapter)
 {
-    var s3 = new AWS.S3();
-    
-    var loadFile = function(fileName, type, handler) {
+    this.loadFile = function(fileName, type, handler) {
         assert.ok(fileName, "fileName required");
         assert.ok(type, "type required");
         
-        s3.getObject({ Bucket: 'import-convertation', Key: fileName }, function(err, data) {
+        fileAdapter.loadFile(fileName, function(err, data) {
             if (err) { console.log(err) }
             else {
-                console.log("File loaded from AWS", fileName, type);
+                console.log("File loaded", fileName, type);
                 handler(err, data.Body.toString(type));
             }
         });
     };
     
-    var saveFile = function(fileName, data, handler) {
+    this.saveFile = function(fileName, data, handler) {
         assert.ok(fileName, "fileName required");
         assert.ok(data, "data required");
         
-        s3.putObject({ Bucket: 'import-convertation', Key: fileName, Body: data }, function(err, data) {
+        fileAdapter.saveFile(fileName, data, function(err, data) {
             if (err) { console.log(err); }
             else {
-                console.log("File saved to AWS", fileName);
+                console.log("File saved", fileName);
                 handler(err);
             }
         });
-    };
-    
-    return {
-        getExtension: getExtension,
-        loadFile: loadFile,
-        saveFile: saveFile
     };
 };
 
