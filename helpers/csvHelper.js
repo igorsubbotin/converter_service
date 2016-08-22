@@ -1,3 +1,5 @@
+var assert = require("assert");
+
 var csvHelper = function() {
     var removeEmptyRows = function(csv) {
         var split = csv.split(/\r?\n/);
@@ -20,10 +22,8 @@ var csvHelper = function() {
     };
     
     var addFakeHeaderRow = function(csv) {
+        assert.ok(csv);
         var split = csv.split(/\r?\n/);
-        if (split.length == 0) {
-            return csv;
-        }
         var columns = [];
         for (var i = 0; i < split[0].split(',').length; i++) {
             columns.push("Column " + (i + 1));

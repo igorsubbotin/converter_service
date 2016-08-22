@@ -1,4 +1,5 @@
 should = require "should"
+assert = require "assert"
 csvHelper = require "../../helpers/csvHelper"
 
 describe "csvHelper Tests", -> 
@@ -38,3 +39,6 @@ describe "csvHelper Tests", ->
             content = "Data0_1,Data0_2\nData1_1,Data1_2"
             result = csvHelper.addFakeHeaderRow(content)
             result.should.equal("Column 1,Column 2\nData0_1,Data0_2\nData1_1,Data1_2")
+        
+        it "fails on empty input", ->
+            csvHelper.addFakeHeaderRow.should.throw(assert.AssertionError)
