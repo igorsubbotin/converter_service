@@ -1,16 +1,23 @@
 var assert = require("assert");
 
-var fileHelper = function(fileAdapter)
+module.exports = function FileHelper(fileAdapter)
 {
+    assert.ok(fileAdapter);
+    
+    this.isOk = function() {
+        return true;
+    };
+    
     this.loadFile = function(fileName, type, handler) {
         assert.ok(fileName, "fileName required");
         assert.ok(type, "type required");
+        assert.ok(handler, "handler required");
         
         fileAdapter.loadFile(fileName, function(err, data) {
             if (err) { console.log(err) }
             else {
                 console.log("File loaded", fileName, type);
-                handler(err, data.Body.toString(type));
+                handler(err, data.toString(type));
             }
         });
     };
@@ -18,15 +25,14 @@ var fileHelper = function(fileAdapter)
     this.saveFile = function(fileName, data, handler) {
         assert.ok(fileName, "fileName required");
         assert.ok(data, "data required");
+        assert.ok(handler, "handler required");
         
         fileAdapter.saveFile(fileName, data, function(err, data) {
             if (err) { console.log(err); }
             else {
                 console.log("File saved", fileName);
-                handler(err);
+                handler(err, data);
             }
         });
     };
 };
-
-module.exports = fileHelper();

@@ -1,7 +1,7 @@
 var s3fileAdapter = require("../aws/s3fileAdapter");
-var fileHelper = require("../helpers/fileHelper");
+var FileHelper = require("../helpers/fileHelper");
 
 module.exports = function()
 {
-    return fileHelper(s3fileAdapter);
+    return new FileHelper(s3fileAdapter);
 };

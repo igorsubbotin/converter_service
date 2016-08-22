@@ -5,16 +5,21 @@ var s3fileAdapter = function()
     var s3 = new AWS.S3();
     var bucketName = 'import-convertation';
     
-    this.loadFile = function(fileName, type, handler) {
+    var loadFile = function(fileName, handler) {
         s3.getObject({ Bucket: bucketName, Key: fileName }, function(err, data) {
             handler(err, data);
         });
     };
     
-    this.saveFile = function(fileName, data, handler) {
+    var saveFile = function(fileName, data, handler) {
         s3.putObject({ Bucket: bucketName, Key: fileName, Body: data }, function(err, data) {
-            handler(err, data);
+            handler(err, data.Body);
         });
+    };
+    
+    return {
+        saveFile: saveFile,
+        loadFile: loadFile
     };
 };
 
