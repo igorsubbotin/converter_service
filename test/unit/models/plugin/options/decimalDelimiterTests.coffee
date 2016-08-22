@@ -1,10 +1,10 @@
 should = require "should"
-optionTypes = require("../../../../models/plugin/options/optionTypes");
-optionUiTypes = require("../../../../models/plugin/options/optionUiTypes");
-decimalDelimiterOption = require("../../../../models/plugin/options/decimalDelimiter/decimalDelimiterOption")
-types = require("../../../../models/plugin/options/decimalDelimiter/values/types")
-decimalDelimiterComma = require("../../../../models/plugin/options/decimalDelimiter/values/decimalDelimiterComma")
-decimalDelimiterDot = require("../../../../models/plugin/options/decimalDelimiter/values/decimalDelimiterDot")
+optionTypes = require("../../../../../models/plugin/options/optionTypes");
+optionUiTypes = require("../../../../../models/plugin/options/optionUiTypes");
+decimalDelimiterOption = require("../../../../../models/plugin/options/decimalDelimiter/decimalDelimiterOption")
+types = require("../../../../../models/plugin/options/decimalDelimiter/values/types")
+decimalDelimiterComma = require("../../../../../models/plugin/options/decimalDelimiter/values/decimalDelimiterComma")
+decimalDelimiterDot = require("../../../../../models/plugin/options/decimalDelimiter/values/decimalDelimiterDot")
 
 describe "Decimal Delimiter tests", ->
     describe "DecimalDelimiterOption", ->

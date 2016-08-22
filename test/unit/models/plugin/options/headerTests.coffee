@@ -1,8 +1,8 @@
 should = require "should"
-optionTypes = require("../../../../models/plugin/options/optionTypes");
-optionUiTypes = require("../../../../models/plugin/options/optionUiTypes");
-headerOption = require("../../../../models/plugin/options/header/headerOption")
-types = require("../../../../models/plugin/options/header/types")
+optionTypes = require("../../../../../models/plugin/options/optionTypes");
+optionUiTypes = require("../../../../../models/plugin/options/optionUiTypes");
+headerOption = require("../../../../../models/plugin/options/header/headerOption")
+types = require("../../../../../models/plugin/options/header/types")
 
 describe "HeaderOption tests", ->
     data = {

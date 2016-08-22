@@ -1,11 +1,11 @@
 should = require "should"
-optionTypes = require("../../../../models/plugin/options/optionTypes");
-optionUiTypes = require("../../../../models/plugin/options/optionUiTypes");
-dateFormatOption = require("../../../../models/plugin/options/dateFormat/dateFormatOption")
-types = require("../../../../models/plugin/options/dateFormat/values/types")
-dateFormatAutomatically = require("../../../../models/plugin/options/dateFormat/values/dateFormatAutomatically")
-dateFormatDayMonthYear = require("../../../../models/plugin/options/dateFormat/values/dateFormatDayMonthYear")
-dateFormatMonthDayYear = require("../../../../models/plugin/options/dateFormat/values/dateFormatMonthDayYear")
+optionTypes = require("../../../../../models/plugin/options/optionTypes");
+optionUiTypes = require("../../../../../models/plugin/options/optionUiTypes");
+dateFormatOption = require("../../../../../models/plugin/options/dateFormat/dateFormatOption")
+types = require("../../../../../models/plugin/options/dateFormat/values/types")
+dateFormatAutomatically = require("../../../../../models/plugin/options/dateFormat/values/dateFormatAutomatically")
+dateFormatDayMonthYear = require("../../../../../models/plugin/options/dateFormat/values/dateFormatDayMonthYear")
+dateFormatMonthDayYear = require("../../../../../models/plugin/options/dateFormat/values/dateFormatMonthDayYear")
 
 describe "Date Format tests", ->
     describe "DateFormatOption", ->

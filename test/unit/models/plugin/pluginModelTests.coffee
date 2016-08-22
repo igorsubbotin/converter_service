@@ -1,6 +1,6 @@
 should = require "should"
-Plugin = require("../../../models/models").plugin;
-options = require("../../../models/plugin/options");
+Plugin = require("../../../../models/models").plugin;
+options = require("../../../../models/plugin/options");
 
 describe "Plugin Model Tests", ->
     plugin = null

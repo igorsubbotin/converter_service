@@ -1,11 +1,11 @@
 should = require "should"
-optionTypes = require("../../../../models/plugin/options/optionTypes");
-optionUiTypes = require("../../../../models/plugin/options/optionUiTypes");
-separatorOption = require("../../../../models/plugin/options/separator/separatorOption")
-types = require("../../../../models/plugin/options/separator/values/types")
-separatorComma = require("../../../../models/plugin/options/separator/values/separatorComma")
-separatorSemicolon = require("../../../../models/plugin/options/separator/values/separatorSemicolon")
-separatorTab = require("../../../../models/plugin/options/separator/values/separatorTab")
+optionTypes = require("../../../../../models/plugin/options/optionTypes");
+optionUiTypes = require("../../../../../models/plugin/options/optionUiTypes");
+separatorOption = require("../../../../../models/plugin/options/separator/separatorOption")
+types = require("../../../../../models/plugin/options/separator/values/types")
+separatorComma = require("../../../../../models/plugin/options/separator/values/separatorComma")
+separatorSemicolon = require("../../../../../models/plugin/options/separator/values/separatorSemicolon")
+separatorTab = require("../../../../../models/plugin/options/separator/values/separatorTab")
 
 describe "Separator tests", ->
     describe "SeparatorOption", ->

@@ -1,6 +1,6 @@
 should = require "should"
 assert = require "assert"
-csvHelper = require "../../helpers/csvHelper"
+csvHelper = require "../../../helpers/csvHelper"
 
 describe "csvHelper Tests", -> 
     describe "removeEmptyRows", -> 

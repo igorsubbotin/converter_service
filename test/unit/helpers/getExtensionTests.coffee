@@ -1,5 +1,5 @@
 should = require "should"
-getExtension = require "../../helpers/getExtension"
+getExtension = require "../../../helpers/getExtension"
 assert = require "assert"
 
 describe "getExtension Tests", -> 
