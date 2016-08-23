@@ -13,4 +13,4 @@ var optionService = function() {
     };
 };
 
-module.exports = optionService;
+module.exports = optionService();

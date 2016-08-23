@@ -1,5 +1,5 @@
 var optionController = function() {
-    var optionService = require("../services/optionService")();
+    var optionService = require("../services/optionService");
     var uriList = require("../helpers/uriList");
     
     var get = function(req, res) {
