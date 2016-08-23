@@ -1,8 +1,11 @@
 var gulp = require("gulp"),
     nodemon = require("gulp-nodemon"),
-    gulpMocha = require("gulp-mocha"),
+    gulpMocha = require("gulp-mocha"),  
+    gutil = require('gulp-util'),
+    coffee = require('gulp-coffee'),
     env = require("gulp-env"),
     supertest = require("supertest");
+require('coffee-script/register');
     
 gulp.task('default', function() {
     env({vars: {ENV: 'Dev'}});
@@ -21,6 +24,7 @@ gulp.task('default', function() {
 
 gulp.task('test', function() {
     env({vars: {ENV: 'Test'}});
-    gulp.src('test/*.coffee', {read: false})
+    gulp.src('test/unit/**/*.coffee', {read: false})
+        .pipe(coffee({bare: true}).on('error', gutil.log))
         .pipe(gulpMocha({reporter: 'nyan'}));
 });
