@@ -8,7 +8,7 @@ describe "Plugin Model Tests", ->
     plugin = null
     data = null
     
-    before ->
+    beforeEach ->
         data = {
             id: '463B46AF-C612-4e53-8E0F-63FD23B3679F',
             formatDisplayName: 'CSV',

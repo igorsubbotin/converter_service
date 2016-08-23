@@ -7,7 +7,7 @@ describe "Format Model Tests", ->
     format = null
     data = null
     
-    before ->
+    beforeEach ->
         data = {
             id: "CSV",
             name: "CSV format",
@@ -22,12 +22,10 @@ describe "Format Model Tests", ->
             
     describe "clone", ->
         it "creates a new object", ->
-            model = new Format(data.id, data.name, data.extension, data.pluginId)
-            clone = model.clone()
+            clone = format.clone()
             clone.id = "new id"
-            model.id.should.not.be.equal(clone.id)
+            format.id.should.not.be.equal(clone.id)
             
         it "creates an object with properties equal to source object", ->
-            model = new Format(data.id, data.name, data.extension, data.pluginId)
-            clone = model.clone()
-            clone.should.shallowDeepEqual(model)
+            clone = format.clone()
+            clone.should.shallowDeepEqual(format)

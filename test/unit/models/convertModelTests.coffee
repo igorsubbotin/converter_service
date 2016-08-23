@@ -8,7 +8,7 @@ describe "Convert Model Tests", ->
     convert = null
     data = null
     
-    before ->
+    beforeEach ->
         data = {
             fileName: "test.csv",
             pluginId: "463B46AF-C612-4e53-8E0F-63FD23B3679F",

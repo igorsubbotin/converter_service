@@ -7,7 +7,7 @@ describe "Options Model Tests", ->
     options = null
     data = null
     
-    before ->
+    beforeEach ->
         data = {
             dateFormat: "mm/dd/yyyy",
             decimalDelimiter: ",",
@@ -29,10 +29,9 @@ describe "Options Model Tests", ->
             
     describe "clone", ->
         it "creates a new object", ->
-            model = new Options(data.dateFormat, data.decimalDelimiter, data.header, data.separator)
-            clone = model.clone()
+            clone = options.clone()
             clone.decimalDelimiter = "."
-            model.decimalDelimiter.should.not.be.equal(clone.decimalDelimiter)
+            options.decimalDelimiter.should.not.be.equal(clone.decimalDelimiter)
             
         it "creates an object with properties equal to source object", ->
             clone = options.clone()
