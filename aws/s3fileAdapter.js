@@ -1,5 +1,6 @@
 var AWS = require("aws-sdk");
 
+/* istanbul ignore next */
 var s3fileAdapter = function()
 {
     var s3 = new AWS.S3();

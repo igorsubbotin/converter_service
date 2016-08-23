@@ -54,6 +54,7 @@ describe "FileHelper Tests", ->
             localFileHelper.saveFile data.fileName, data.content, (err) -> 
                 fileAdapter.files[data.fileName].should.equal(data.content)
                 done()
+                
         it "fails on empty fileName", ->
             f = () -> fileHelper.saveFile(null, data.content, data.handlerStub)
             f.should.throw(assert.AssertionError)
