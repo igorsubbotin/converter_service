@@ -1,4 +1,6 @@
-should = require "should"
+chai = require "chai"
+should = chai.should()
+chai.use(require('chai-shallow-deep-equal'))
 Plugin = require("../../../models/models").plugin
 pluginService = require("../../../services/pluginService")
 options = require("../../../models/plugin/options")
@@ -23,13 +25,13 @@ describe "PluginService tests", ->
     
     describe "getAll", ->
         it "returns all plugins", ->
-            pluginService.getAll().should.deepEqual(plugins)
+            pluginService.getAll().should.shallowDeepEqual(plugins)
             
     describe "getById", ->
         it "returns correct plugin (CSV)", ->
-            pluginService.getById(pluginIds.CSV).should.deepEqual(plugins[pluginIds.CSV])
+            pluginService.getById(pluginIds.CSV).should.shallowDeepEqual(plugins[pluginIds.CSV])
             
     describe "getConvertHandler", ->
         it "returns correct convert handler (XML)", ->
-            pluginService.getConvertHandler(pluginIds.XML).should.deepEqual(pluginHandlers[pluginIds.XML])
+            pluginService.getConvertHandler(pluginIds.XML).should.shallowDeepEqual(pluginHandlers[pluginIds.XML])
             

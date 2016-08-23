@@ -1,4 +1,5 @@
-should = require "should"
+chai = require "chai"
+should = chai.should()
 InMemoryFileAdapter = require "../../../helpers/inMemoryFileAdapter"
 
 describe "InMemoryFileAdapter Tests", -> 
@@ -7,7 +8,7 @@ describe "InMemoryFileAdapter Tests", ->
         fileName = "file.txt"
         content = "file_content"
         inMemoryFileAdapter.saveFile fileName, content, (err, data) ->
-            inMemoryFileAdapter.files[fileName].should.equal(content)
+            inMemoryFileAdapter.files[fileName].should.be.equal(content)
             done()
     
     it "loads data from internal storage", (done) ->
@@ -16,5 +17,5 @@ describe "InMemoryFileAdapter Tests", ->
         content = "file_content"
         inMemoryFileAdapter.saveFile fileName, content, () ->
         inMemoryFileAdapter.loadFile fileName, (err, data) ->
-            data.should.equal(content)
+            data.should.be.equal(content)
             done()

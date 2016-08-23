@@ -1,4 +1,6 @@
-should = require "should"
+chai = require "chai"
+chai.use(require('chai-shallow-deep-equal'))
+should = chai.should()
 Format = require("../../../models/format/formatModel")
 
 describe "Format Model Tests", ->
@@ -16,22 +18,16 @@ describe "Format Model Tests", ->
     
     describe "Creation", ->
         it "creates a model with correct properties", ->
-            format.id.should.equal(data.id)
-            format.name.should.equal(data.name)
-            format.extension.should.equal(data.extension)
-            format.pluginId.should.equal(data.pluginId)
+            format.should.shallowDeepEqual(data)
             
     describe "clone", ->
         it "creates a new object", ->
             model = new Format(data.id, data.name, data.extension, data.pluginId)
             clone = model.clone()
             clone.id = "new id"
-            model.id.should.not.equal(clone.id)
+            model.id.should.not.be.equal(clone.id)
             
         it "creates an object with properties equal to source object", ->
             model = new Format(data.id, data.name, data.extension, data.pluginId)
             clone = model.clone()
-            clone.id.should.equal(model.id)
-            clone.name.should.equal(model.name)
-            clone.extension.should.equal(model.extension)
-            clone.pluginId.should.equal(model.pluginId)
+            clone.should.shallowDeepEqual(model)

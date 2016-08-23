@@ -1,4 +1,6 @@
-should = require "should"
+chai = require "chai"
+chai.use(require('chai-shallow-deep-equal'))
+should = chai.should()
 Format = require("../../../models/models").format
 formatService = require("../../../services/formatService")
 
@@ -16,24 +18,24 @@ describe "FormatService tests", ->
         
     describe "getAll", ->
         it "returns all formats", ->
-            formatService.getAll().should.deepEqual(formats)
+            formatService.getAll().should.shallowDeepEqual(formats)
             
     describe "getById", ->
         it "returns correct format object (CSV)", ->
-            formatService.getById('CSV').should.deepEqual(formats['CSV'])
+            formatService.getById('CSV').should.shallowDeepEqual(formats['CSV'])
             
         it "returns correct format object (XML Spreadsheet)", ->
-            formatService.getById('XML Spreadsheet').should.deepEqual(formats['XML Spreadsheet'])
+            formatService.getById('XML Spreadsheet').should.shallowDeepEqual(formats['XML Spreadsheet'])
             
         it "returns correct format object (Excel 12.0 Xml)", ->
-            formatService.getById('Excel 12.0 Xml').should.deepEqual(formats['Excel 12.0 Xml'])
+            formatService.getById('Excel 12.0 Xml').should.shallowDeepEqual(formats['Excel 12.0 Xml'])
             
     describe "getByFileName", ->
         it "returns correct format object (.csv)", ->
-            formatService.getByFileName('file.csv').should.deepEqual(formats['CSV'])
+            formatService.getByFileName('file.csv').should.shallowDeepEqual(formats['CSV'])
                 
         it "returns correct format object (.xls)", ->
-            formatService.getByFileName('file.xls').should.deepEqual(formats['Excel 8.0'])
+            formatService.getByFileName('file.xls').should.shallowDeepEqual(formats['Excel 8.0'])
         
         it "returns correct format object (.xml.xls)", ->
-            formatService.getByFileName('file.xml.xls').should.deepEqual(formats['XML Spreadsheet (xls extension)'])
+            formatService.getByFileName('file.xml.xls').should.shallowDeepEqual(formats['XML Spreadsheet (xls extension)'])

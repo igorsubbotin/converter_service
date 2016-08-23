@@ -1,4 +1,5 @@
-should = require "should"
+chai = require "chai"
+should = chai.should()
 assert = require "assert"
 InMemoryFileAdapter = require "../../../helpers/inMemoryFileAdapter"
 FileHelper = require("../../../helpers/fileHelper")
@@ -20,7 +21,7 @@ describe "FileHelper Tests", ->
     
     describe "Creation", ->
         it "creates a valid object", ->
-            fileHelper.isOk().should.be.true()
+            fileHelper.isOk().should.be.true
         
         it "fails on empty input fileAdapter", ->
             ctr = () -> new FileHelper()
@@ -32,7 +33,7 @@ describe "FileHelper Tests", ->
             fileAdapter.files[data.fileName] = data.content64
             localFileHelper = new FileHelper(fileAdapter)
             content = localFileHelper.loadFile data.fileName, data.type, (err, content) ->
-                content.should.equal(data.content64)
+                content.should.be.equal(data.content64)
                 done()
         
         it "fails on empty fileName", ->
@@ -52,7 +53,7 @@ describe "FileHelper Tests", ->
             fileAdapter = new InMemoryFileAdapter()
             localFileHelper = new FileHelper(fileAdapter)
             localFileHelper.saveFile data.fileName, data.content, (err) -> 
-                fileAdapter.files[data.fileName].should.equal(data.content)
+                fileAdapter.files[data.fileName].should.be.equal(data.content)
                 done()
                 
         it "fails on empty fileName", ->

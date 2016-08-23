@@ -1,4 +1,6 @@
-should = require "should"
+chai = require "chai"
+chai.use(require('chai-shallow-deep-equal'))
+should = chai.should()
 optionTypes = require("../../../../../models/plugin/options/optionTypes");
 optionUiTypes = require("../../../../../models/plugin/options/optionUiTypes");
 dateFormatOption = require("../../../../../models/plugin/options/dateFormat/dateFormatOption")
@@ -17,22 +19,16 @@ describe "Date Format tests", ->
         }
         
         it "has a model with correct properties", ->
-            dateFormatOption.title.should.equal(data.title)
-            dateFormatOption.type.should.equal(data.type)
-            dateFormatOption.uiType.should.equal(data.uiType)
-            dateFormatOption.values.should.deepEqual(data.values)
+            dateFormatOption.should.shallowDeepEqual(data)
             
         it "clones a new object", ->
             clone = dateFormatOption.clone()
             clone.title = "No title"
-            dateFormatOption.title.should.not.equal(clone.title)
+            dateFormatOption.title.should.not.be.equal(clone.title)
             
         it "clones an object with properties equal to source object", ->
             clone = dateFormatOption.clone()
-            clone.title.should.equal(data.title)
-            clone.type.should.equal(data.type)
-            clone.uiType.should.equal(data.uiType)
-            clone.values.should.deepEqual(data.values)
+            clone.should.shallowDeepEqual(dateFormatOption)
     
     describe "DateFormatAutomatically", ->
         data = {
@@ -43,22 +39,16 @@ describe "Date Format tests", ->
         }
         
         it "has a model with correct properties", ->
-            dateFormatAutomatically.type.should.equal(data.type)
-            dateFormatAutomatically.name.should.equal(data.name)
-            dateFormatAutomatically.value.should.equal(data.value)
-            dateFormatAutomatically.isDefault.should.equal(data.isDefault)
+            dateFormatAutomatically.should.shallowDeepEqual(data)
             
         it "clones a new object", ->
             clone = dateFormatAutomatically.clone()
             clone.name = "No name"
-            dateFormatAutomatically.name.should.not.equal(clone.name)
+            dateFormatAutomatically.name.should.not.be.equal(clone.name)
             
         it "clones an object with properties equal to source object", ->
             clone = dateFormatAutomatically.clone()
-            clone.type.should.equal(data.type)
-            clone.name.should.equal(data.name)
-            clone.value.should.equal(data.value)
-            clone.isDefault.should.equal(data.isDefault)
+            clone.should.shallowDeepEqual(dateFormatAutomatically)
             
     describe "DateFormatDayMonthYear", ->
         data = {
@@ -69,22 +59,16 @@ describe "Date Format tests", ->
         }
         
         it "has a model with correct properties", ->
-            dateFormatDayMonthYear.type.should.equal(data.type)
-            dateFormatDayMonthYear.name.should.equal(data.name)
-            dateFormatDayMonthYear.value.should.equal(data.value)
-            dateFormatDayMonthYear.isDefault.should.equal(false)
+            dateFormatDayMonthYear.should.shallowDeepEqual(data)
             
         it "clones a new object", ->
             clone = dateFormatDayMonthYear.clone()
             clone.name = "No name"
-            dateFormatDayMonthYear.name.should.not.equal(clone.name)
+            dateFormatDayMonthYear.name.should.not.be.equal(clone.name)
             
         it "clones an object with properties equal to source object", ->
             clone = dateFormatDayMonthYear.clone()
-            clone.type.should.equal(data.type)
-            clone.name.should.equal(data.name)
-            clone.value.should.equal(data.value)
-            clone.isDefault.should.equal(data.isDefault)
+            clone.should.shallowDeepEqual(dateFormatDayMonthYear)
             
     describe "DateFormatMonthDayYear", ->
         data = {
@@ -95,19 +79,13 @@ describe "Date Format tests", ->
         }
         
         it "has a model with correct properties", ->
-            dateFormatMonthDayYear.type.should.equal(data.type)
-            dateFormatMonthDayYear.name.should.equal(data.name)
-            dateFormatMonthDayYear.value.should.equal(data.value)
-            dateFormatMonthDayYear.isDefault.should.equal(false)
+            dateFormatMonthDayYear.should.shallowDeepEqual(data)
             
         it "clones a new object", ->
             clone = dateFormatMonthDayYear.clone()
             clone.name = "No name"
-            dateFormatMonthDayYear.name.should.not.equal(clone.name)
+            dateFormatMonthDayYear.name.should.not.be.equal(clone.name)
             
         it "clones an object with properties equal to source object", ->
             clone = dateFormatMonthDayYear.clone()
-            clone.type.should.equal(data.type)
-            clone.name.should.equal(data.name)
-            clone.value.should.equal(data.value)
-            clone.isDefault.should.equal(data.isDefault)
+            clone.should.shallowDeepEqual(dateFormatMonthDayYear)

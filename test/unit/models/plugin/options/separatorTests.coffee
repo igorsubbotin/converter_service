@@ -1,4 +1,6 @@
-should = require "should"
+chai = require "chai"
+chai.use(require('chai-shallow-deep-equal'))
+should = chai.should()
 optionTypes = require("../../../../../models/plugin/options/optionTypes");
 optionUiTypes = require("../../../../../models/plugin/options/optionUiTypes");
 separatorOption = require("../../../../../models/plugin/options/separator/separatorOption")
@@ -17,22 +19,16 @@ describe "Separator tests", ->
         }
         
         it "has a model with correct properties", ->
-            separatorOption.title.should.equal(data.title)
-            separatorOption.type.should.equal(data.type)
-            separatorOption.uiType.should.equal(data.uiType)
-            separatorOption.values.should.deepEqual(data.values)
+            separatorOption.should.shallowDeepEqual(data)
             
         it "clones a new object", ->
             clone = separatorOption.clone()
             clone.title = "No title"
-            separatorOption.title.should.not.equal(clone.title)
+            separatorOption.title.should.not.be.equal(clone.title)
             
         it "clones an object with properties equal to source object", ->
             clone = separatorOption.clone()
-            clone.title.should.equal(data.title)
-            clone.type.should.equal(data.type)
-            clone.uiType.should.equal(data.uiType)
-            clone.values.should.deepEqual(data.values)
+            clone.should.shallowDeepEqual(separatorOption)
     
     describe "SeparatorComma", ->
         data = {
@@ -43,22 +39,16 @@ describe "Separator tests", ->
         }
         
         it "has a model with correct properties", ->
-            separatorComma.type.should.equal(data.type)
-            separatorComma.name.should.equal(data.name)
-            separatorComma.value.should.equal(data.value)
-            separatorComma.isDefault.should.equal(data.isDefault)
+            separatorComma.should.shallowDeepEqual(data)
             
         it "clones a new object", ->
             clone = separatorComma.clone()
             clone.name = "No name"
-            separatorComma.name.should.not.equal(clone.name)
+            separatorComma.name.should.not.be.equal(clone.name)
             
         it "clones an object with properties equal to source object", ->
             clone = separatorComma.clone()
-            clone.type.should.equal(data.type)
-            clone.name.should.equal(data.name)
-            clone.value.should.equal(data.value)
-            clone.isDefault.should.equal(data.isDefault)
+            clone.should.shallowDeepEqual(separatorComma)
             
     describe "SeparatorSemicolon", ->
         data = {
@@ -69,22 +59,16 @@ describe "Separator tests", ->
         }
         
         it "has a model with correct properties", ->
-            separatorSemicolon.type.should.equal(data.type)
-            separatorSemicolon.name.should.equal(data.name)
-            separatorSemicolon.value.should.equal(data.value)
-            separatorSemicolon.isDefault.should.equal(data.isDefault)
+            separatorSemicolon.should.shallowDeepEqual(data)
             
         it "clones a new object", ->
             clone = separatorSemicolon.clone()
             clone.name = "No name"
-            separatorSemicolon.name.should.not.equal(clone.name)
+            separatorSemicolon.name.should.not.be.equal(clone.name)
             
         it "clones an object with properties equal to source object", ->
             clone = separatorSemicolon.clone()
-            clone.type.should.equal(data.type)
-            clone.name.should.equal(data.name)
-            clone.value.should.equal(data.value)
-            clone.isDefault.should.equal(data.isDefault)
+            clone.should.shallowDeepEqual(separatorSemicolon)
             
     describe "SeparatorTab", ->
         data = {
@@ -95,10 +79,7 @@ describe "Separator tests", ->
         }
         
         it "has a model with correct properties", ->
-            separatorTab.type.should.equal(data.type)
-            separatorTab.name.should.equal(data.name)
-            separatorTab.value.should.equal(data.value)
-            separatorTab.isDefault.should.equal(data.isDefault)
+            separatorTab.should.shallowDeepEqual(data)
             
         it "clones a new object", ->
             clone = separatorTab.clone()
@@ -107,7 +88,4 @@ describe "Separator tests", ->
             
         it "clones an object with properties equal to source object", ->
             clone = separatorTab.clone()
-            clone.type.should.equal(data.type)
-            clone.name.should.equal(data.name)
-            clone.value.should.equal(data.value)
-            clone.isDefault.should.equal(data.isDefault)
+            clone.should.shallowDeepEqual(separatorTab)

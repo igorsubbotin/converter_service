@@ -1,4 +1,6 @@
-should = require "should"
+chai = require "chai"
+chai.use(require('chai-shallow-deep-equal'))
+should = chai.should()
 Convert = require("../../../models/models").convert;
 Options = require("../../../models/plugin/options/optionsModel")
 
@@ -21,33 +23,21 @@ describe "Convert Model Tests", ->
     
     describe "Creation", ->
         it "creates a model instance with correct properties", ->
-            convert.fileName.should.equal(data.fileName)
-            convert.pluginId.should.equal(data.pluginId)
-            convert.options.should.equal(data.options)
-            convert.error.should.equal(data.error)
-            convert.success.should.equal(data.success)
-            convert.resultFileName.should.equal(data.resultFileName)
-            convert.hasHeaderRow.should.equal(data.options.header)
+            convert.should.shallowDeepEqual(data)
     
     describe "clone", ->
         it "returns a new object", ->
             clone = convert.clone()
             clone.fileName += "_change"
-            clone.fileName.should.not.equal(convert.fileName)
+            clone.fileName.should.not.be.equal(convert.fileName)
             
         it "creates an object with properties equal to source object", ->
             clone = convert.clone()
-            clone.fileName.should.equal(convert.fileName)
-            clone.pluginId.should.equal(convert.pluginId)
-            clone.options.should.deepEqual(convert.options)
-            clone.error.should.equal(convert.error)
-            clone.success.should.equal(convert.success)
-            clone.resultFileName.should.equal(convert.resultFileName)
-            clone.hasHeaderRow.should.equal(convert.options.header)
+            clone.should.shallowDeepEqual(convert)
             
     describe "toLog", ->
         it "returns valid string", ->
-            convert.toLog().should.equal(
+            convert.toLog().should.be.equal(
                 "fileName:" + convert.fileName + ", pluginId:" + 
                 convert.pluginId + ", error:" + convert.error + 
                 ", resultFileName:" + convert.resultFileName + 
