@@ -1,7 +1,7 @@
 var convertService = function() {
     var Convert = require("../models/models").convert;
     var pluginService = require("./pluginService")();
-    var parseOptions = require("../models/plugin/optionParser");
+    var parseOptions = require("../models/plugin/parseOptions");
     
     var convert = function(fileName, pluginId, options) {
         var result = new Convert(fileName, pluginId, parseOptions(options));

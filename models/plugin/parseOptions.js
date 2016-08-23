@@ -1,4 +1,5 @@
-var Options = require("./options/optionsModel")
+var Options = require("./options/optionsModel");
+var optionTypes = require("./options/optionTypes");
 
 function parseDateFormat(value)
 {
@@ -7,13 +8,13 @@ function parseDateFormat(value)
     var dateFormatDayMonthYear = require("./options/dateFormat/values/dateFormatDayMonthYear");
     var dateFormatOptionValueTypes = require("./options/dateFormat/values/types");
     switch (value.type) {
-        default:
-        case dateFormatOptionValueTypes.automatically:
-            return dateFormatAutomatically.value;
         case dateFormatOptionValueTypes.monthDayYear:
             return dateFormatMonthDayYear.value;
         case dateFormatOptionValueTypes.dayMonthYear:
             return dateFormatDayMonthYear.value;
+        case dateFormatOptionValueTypes.automatically:
+        default:
+            return dateFormatAutomatically.value;
     }
 }
 
@@ -62,10 +63,12 @@ function parseSeparator(value)
 var parseOptions = function(options) 
 {
     var result = new Options();
-    var optionTypes = require("./options/optionTypes");
+    if (options == null) {
+        return result;
+    }
     for (var i = 0; i < options.length; i++) {
         var option = options[i];
-        if (option.values == null) {
+        if (option.values == null || option.values.length == 0) {
             continue;
         }
         for (var j = 0; j < option.values.length; j++) {
