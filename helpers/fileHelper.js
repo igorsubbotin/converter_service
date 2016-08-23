@@ -14,6 +14,7 @@ module.exports = function FileHelper(fileAdapter)
         assert.ok(handler, "handler required");
         
         fileAdapter.loadFile(fileName, function(err, data) {
+            /* istanbul ignore if */
             if (err) { console.log(err) }
             else {
                 console.log("File loaded", fileName, type);
@@ -28,6 +29,7 @@ module.exports = function FileHelper(fileAdapter)
         assert.ok(handler, "handler required");
         
         fileAdapter.saveFile(fileName, data, function(err, data) {
+            /* istanbul ignore if */
             if (err) { console.log(err); }
             else {
                 console.log("File saved", fileName);
