@@ -1,1 +1,0 @@
-istanbul cover _mocha --include-all-sources
