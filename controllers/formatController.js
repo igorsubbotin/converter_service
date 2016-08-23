@@ -1,5 +1,5 @@
 var formatController = function() {
-    var formatService = require("../services/formatService")();
+    var formatService = require("../services/formatService");
     var uriList = require("../helpers/uriList");
     
     this.getReturnFormat = function (format, req) {

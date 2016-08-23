@@ -39,4 +39,4 @@ var formatService = function() {
     };
 };
 
-module.exports = formatService;
+module.exports = formatService();
