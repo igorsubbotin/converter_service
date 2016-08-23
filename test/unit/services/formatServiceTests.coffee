@@ -18,7 +18,7 @@ describe "FormatService tests", ->
         
     describe "getAll", ->
         it "returns all formats", ->
-            formatService.getAll().should.shallowDeepEqual(formats)
+            formatService.getAll().should.shallowDeepEqual(formats) 
             
     describe "getById", ->
         it "returns correct format object (CSV)", ->

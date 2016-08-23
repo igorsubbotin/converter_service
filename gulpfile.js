@@ -30,5 +30,6 @@ gulp.task('test', function() {
 });
 
 gulp.task('test-watch', function() {
-    gulp.watch(['./**/*.js', 'test/**/*.coffee'], ['test']);
+    gulp.watch(['./**/*.js', 'test/**/*.coffee'], ['test'])
+    .on('error', gutil.log);
 })
