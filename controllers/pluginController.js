@@ -1,5 +1,5 @@
 var pluginController = function() {
-    var pluginService = require("../services/pluginService")();
+    var pluginService = require("../services/pluginService");
     var uriList = require("../helpers/uriList");
     
     var get = function(req, res) {

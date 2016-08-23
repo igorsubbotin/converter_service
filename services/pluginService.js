@@ -35,4 +35,4 @@ var pluginService = function() {
     };
 };
 
-module.exports = pluginService;
+module.exports = pluginService();
