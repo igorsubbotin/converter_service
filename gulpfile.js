@@ -2,6 +2,7 @@ var gulp = require("gulp"),
     nodemon = require("gulp-nodemon"),
     gulpMocha = require("gulp-mocha"),  
     gutil = require('gulp-util'),
+    run = require("gulp-run"),
     coffee = require('gulp-coffee'),
     env = require("gulp-env"),
     supertest = require("supertest");
@@ -32,4 +33,9 @@ gulp.task('test', function() {
 gulp.task('test-watch', function() {
     gulp.watch(['./**/*.js', 'test/**/*.coffee'], ['test'])
     .on('error', gutil.log);
-})
+});
+
+gulp.task('lint', function() {
+    return run('eslint **/*.js').exec();
+});
+
