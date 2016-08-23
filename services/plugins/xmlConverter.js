@@ -14,7 +14,7 @@ var convert = function(model, handler) {
             csv = csvHelper.addFakeHeaderRow(csv);
         }
         model.resultFileName = model.fileName +"_output";
-        fileHelper.saveFile(model.resultFileName, csv, function(err, data) { handler(err) });
+        fileHelper.saveFile(model.resultFileName, csv, function(err) { handler(err) });
     });
 };
 

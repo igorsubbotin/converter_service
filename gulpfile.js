@@ -4,8 +4,7 @@ var gulp = require("gulp"),
     gutil = require('gulp-util'),
     run = require("gulp-run"),
     coffee = require('gulp-coffee'),
-    env = require("gulp-env"),
-    supertest = require("supertest");
+    env = require("gulp-env");
 require('coffee-script/register');
     
 gulp.task('default', function() {
@@ -35,7 +34,11 @@ gulp.task('test-watch', function() {
     .on('error', gutil.log);
 });
 
+gulp.task('test-istanbul', function() {
+    return run('istanbul cover _mocha --include-all-sources').exec();
+});
+
 gulp.task('lint', function() {
-    return run('eslint **/*.js').exec();
+    return run('eslint .').exec();
 });
 

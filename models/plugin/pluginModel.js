@@ -5,7 +5,7 @@ module.exports = function Plugin(id, formatDisplayName, options) {
     
     this.clone = function() {
         var clonedOption = [];
-        this.options.forEach(function(element, index, array) {
+        this.options.forEach(function(element) {
             clonedOption.push(element.clone());
         });
         return new Plugin(this.id, this.formatDisplayName, clonedOption);

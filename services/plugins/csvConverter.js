@@ -34,9 +34,10 @@ var convert = function(model, handler) {
         var output = '';
         var stringifier = stringify();
         stringifier.on('readable', function() {
-            var row;
-            while(row = stringifier.read()) {
+            var row = stringifier.read();
+            while(row) {
                 output += row;
+                row = stringifier.read();
             }
         });
         stringifier.on('error', function(err) {
@@ -51,7 +52,7 @@ var convert = function(model, handler) {
             output = csvHelper.addFakeHeaderRow(output);
         }
         model.resultFileName = model.fileName +"_output";
-        fileHelper.saveFile(model.resultFileName, output, function(err, data) { handler(err) });
+        fileHelper.saveFile(model.resultFileName, output, function(err) { handler(err) });
     });
 };
 
