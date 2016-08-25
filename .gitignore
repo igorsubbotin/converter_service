@@ -35,6 +35,3 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
-
-# Temporary allow curl.exe
-!curl.exe
