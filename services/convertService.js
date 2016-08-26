@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 var convertService = function() {
     var Convert = require("../models/models").convert;
     var pluginService = require("./pluginService");
