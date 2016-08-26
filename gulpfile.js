@@ -35,7 +35,7 @@ gulp.task('test-watch', function() {
 });
 
 gulp.task('test-istanbul', function() {
-    return run('istanbul cover _mocha --include-all-sources').exec();
+    return run('istanbul cover _mocha --include-all-sources -x "gulpfile.js" -x "app.js"').exec();
 });
 
 gulp.task('lint', function() {
