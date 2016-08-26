@@ -30,4 +30,5 @@ var convertService = function() {
     };
 };
 
+/* istanbul ignore next */
 module.exports = convertService;
