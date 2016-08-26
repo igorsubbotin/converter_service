@@ -34,8 +34,8 @@ gulp.task('test-watch', function() {
     .on('error', gutil.log);
 });
 
-gulp.task('test-istanbul', function() {
-    return run('istanbul cover _mocha --include-all-sources -x "gulpfile.js" -x "app.js"').exec();
+gulp.task('test-cover', function() {
+    return run('istanbul cover _mocha').exec();
 });
 
 gulp.task('lint', function() {
