@@ -20,7 +20,6 @@
     "chai": "^3.5.0",
     "chai-shallow-deep-equal": "^1.4.0",
     "coffee": "^3.2.5",
-    "coffee-coverage": "^1.0.1",
     "eslint": "^3.3.1",
     "gulp-coffee": "^2.3.2",
     "gulp-env": "^0.4.0",
