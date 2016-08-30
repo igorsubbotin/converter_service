@@ -4,9 +4,9 @@ var convertController = function() {
     var post = function(req, res) {
         var fileName = req.body.fileName;
         console.log("<GET> Convert file: " + fileName);
-        var convert = convertService.convert(fileName, req.body.pluginId, req.body.options);
-        convert.then(value => {
-            res.json(value);
+        convertService.convert(fileName, req.body.pluginId, req.body.options, function(err, data) {
+            if (err) { console.log(err) }
+            res.json(data);
         });
     };
     

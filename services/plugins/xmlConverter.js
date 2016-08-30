@@ -1,21 +1,24 @@
 var xlsx = require("xlsx");
-var fileHelper = require("../../configuration/getFileHelper")();
-var csvHelper = require("../../helpers/csvHelper");
 var stripBom = require('strip-bom');
+var moment = require("moment");
 
-var convert = function(model, handler) {
-    fileHelper.loadFile(model.fileName, 'base64', function(err, data) {
-        if (err) { console.log(err); }
-        console.log("[XML Spreadsheet converter] Convert file: ", model.toLog());
-        var workbook = xlsx.read(new Buffer(stripBom(new Buffer(data, 'base64').toString())), {type:'buffer'});
-        var csv = xlsx.utils.sheet_to_csv(workbook.Sheets[workbook.SheetNames[0]]);
-        csv = csvHelper.removeEmptyRows(csv);
-        if (!model.hasHeaderRow) {
-            csv = csvHelper.addFakeHeaderRow(csv);
-        }
-        model.resultFileName = model.fileName +"_output";
-        fileHelper.saveFile(model.resultFileName, csv, function(err) { handler(err) });
-    });
+function normalizeDateTime(cell) {
+    var d = moment(cell.w, 'dddd, MMMM D, YYYY', true);
+    if (d.isValid()) {
+        cell.w = d.format('DD MMM YY');
+    }
+    return cell;
+}
+
+var convert = function(model, data, next) {
+    var workbook = xlsx.read(new Buffer(stripBom(new Buffer(data, 'base64').toString())), {type:'buffer'});
+    var worksheet = workbook.Sheets[workbook.SheetNames[0]];
+    for (var z in worksheet) {
+        if(z[0] === '!') continue;
+        worksheet[z] = normalizeDateTime(worksheet[z]);
+    }
+    var csv = xlsx.utils.sheet_to_csv(workbook.Sheets[workbook.SheetNames[0]]);
+    next(null, csv);
 };
 
 module.exports = convert;

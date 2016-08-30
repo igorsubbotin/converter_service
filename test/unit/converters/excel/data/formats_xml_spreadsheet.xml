@@ -1,0 +1,108 @@
+﻿<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Igor Subbotin</Author>
+  <LastAuthor>Igor Subbotin</LastAuthor>
+  <Created>2016-08-26T16:00:57Z</Created>
+  <LastSaved>2016-08-30T11:39:22Z</LastSaved>
+  <Version>15.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>12435</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11"
+    ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s16">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s17">
+   <NumberFormat ss:Format="0"/>
+  </Style>
+  <Style ss:ID="s18">
+   <NumberFormat ss:Format="Fixed"/>
+  </Style>
+  <Style ss:ID="s19">
+   <NumberFormat ss:Format="[$-F800]dddd\,\ mmmm\ dd\,\ yyyy"/>
+  </Style>
+  <Style ss:ID="s20">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Sheet1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="63.75"/>
+   <Column ss:Index="5" ss:Width="91.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="159.75"/>
+   <Row>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">First name</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Last name</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Number</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Decimal</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Datetime</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Comment</Data></Cell>
+   </Row>
+   <Row ss:Height="60">
+    <Cell><Data ss:Type="String">Сергей</Data></Cell>
+    <Cell><Data ss:Type="String">Мозякин</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="Number">12.13</Data></Cell>
+    <Cell ss:StyleID="s19"/>
+    <Cell ss:StyleID="s20"><Data ss:Type="String">multiline&#10;comment&#10;is&#10;here</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Ivan</Data></Cell>
+    <Cell><Data ss:Type="String">Kozlov</Data></Cell>
+    <Cell ss:StyleID="s17"/>
+    <Cell ss:StyleID="s18"/>
+    <Cell ss:StyleID="s19"><Data ss:Type="DateTime">2014-12-15T00:00:00.000</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

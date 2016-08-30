@@ -1,5 +1,3 @@
-var fileHelper = require("../../configuration/getFileHelper")();
-var csvHelper = require("../../helpers/csvHelper");
 var csvparse = require('js-csvparser');
 var stringify = require('csv-stringify');
 var moment = require("moment");
@@ -16,44 +14,37 @@ function normalizeDateTime(record) {
     return result;
 }
 
-var convert = function(model, handler) {
-    fileHelper.loadFile(model.fileName, 'base64', function(err, data) {
-        if (err) { console.log(err); }
-        console.log("[CSV converter] Convert file: ", model.toLog());
-        var text = new Buffer(data, 'base64').toString('utf-8');
-        var options = {
-            delimiter: model.options.separator,
-            convertToTypes: {
-                convert: true,
-                decimalDelimiter: model.options.decimalDelimiter,
-                dateFormat: model.options.dateFormat
-            },
-            header: false
-        };
-        var records = csvparse(text, options);
-        var output = '';
-        var stringifier = stringify();
-        stringifier.on('readable', function() {
-            var row = stringifier.read();
-            while(row) {
-                output += row;
-                row = stringifier.read();
-            }
-        });
-        stringifier.on('error', function(err) {
-          console.log(err.message);
-        });
-        for (var i = 0; i < records.data.length; i++) {
-            stringifier.write(normalizeDateTime(records.data[i]));
+var convert = function(model, data, next) {
+    var text = new Buffer(data, 'base64').toString('utf-8');
+    console.log(text);
+    var options = {
+        delimiter: model.options.separator,
+        convertToTypes: {
+            convert: true,
+            decimalDelimiter: model.options.decimalDelimiter,
+            dateFormat: model.options.dateFormat
+        },
+        header: false
+    };
+    var records = csvparse(text, options);
+    var csv = '';
+    var stringifier = stringify();
+    stringifier.on('readable', function() {
+        var row = stringifier.read();
+        while(row) {
+            csv += row;
+            row = stringifier.read();
         }
-        stringifier.end();
-        output = csvHelper.removeEmptyRows(output);
-        if (!model.hasHeaderRow) {
-            output = csvHelper.addFakeHeaderRow(output);
-        }
-        model.resultFileName = model.fileName +"_output";
-        fileHelper.saveFile(model.resultFileName, output, function(err) { handler(err) });
     });
+    stringifier.on('error', function(err) {
+      console.log(err.message);
+    });
+    for (var i = 0; i < records.data.length; i++) {
+        stringifier.write(normalizeDateTime(records.data[i]));
+    }
+    stringifier.end();
+    console.log(csv);
+    next(null, csv);
 };
 
 module.exports = convert;
