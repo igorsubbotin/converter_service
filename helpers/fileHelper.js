@@ -15,7 +15,9 @@ module.exports = function FileHelper(fileAdapter)
         
         fileAdapter.loadFile(fileName, function(err, data) {
             /* istanbul ignore if */
-            if (err) { console.log(err) }
+            if (err) { 
+                handler(err);
+            }
             else {
                 console.log("File loaded", fileName, type);
                 handler(err, data.toString(type));
@@ -30,7 +32,9 @@ module.exports = function FileHelper(fileAdapter)
         
         fileAdapter.saveFile(fileName, data, function(err, data) {
             /* istanbul ignore if */
-            if (err) { console.log(err); }
+            if (err) { 
+                handler(err);
+            }
             else {
                 console.log("File saved", fileName);
                 handler(err, data);

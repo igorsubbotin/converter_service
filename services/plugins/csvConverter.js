@@ -16,7 +16,6 @@ function normalizeDateTime(record) {
 
 var convert = function(model, data, next) {
     var text = new Buffer(data, 'base64').toString('utf-8');
-    console.log(text);
     var options = {
         delimiter: model.options.separator,
         convertToTypes: {
@@ -43,7 +42,6 @@ var convert = function(model, data, next) {
         stringifier.write(normalizeDateTime(records.data[i]));
     }
     stringifier.end();
-    console.log(csv);
     next(null, csv);
 };
 

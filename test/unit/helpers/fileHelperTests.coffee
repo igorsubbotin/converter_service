@@ -11,13 +11,13 @@ describe "FileHelper Tests", ->
         content: "Some text content is here",
         handlerStub: (err, data) ->
     }
-    data.buffer = new Buffer(data.content);
-    data.content64 = data.buffer.toString(data.type);
+    data.buffer = new Buffer(data.content)
+    data.content64 = data.buffer.toString(data.type)
     fileHelper = null
     inMemoryFileAdapter = null
-    before -> 
+    beforeEach -> 
         inMemoryFileAdapter = new InMemoryFileAdapter()
-        fileHelper = new FileHelper(inMemoryFileAdapter);
+        fileHelper = new FileHelper(inMemoryFileAdapter)
     
     describe "Creation", ->
         it "creates a valid object", ->
@@ -48,6 +48,13 @@ describe "FileHelper Tests", ->
             f = () -> fileHelper.loadFile(data.fileName, data.type, null)
             f.should.throw(assert.AssertionError)
             
+        it "calls callback on error", (done) ->
+            inMemoryFileAdapter = new InMemoryFileAdapter(true, false)
+            fileHelper = new FileHelper(inMemoryFileAdapter)
+            fileHelper.loadFile data.fileName, data.type, (err, data) ->
+                err.should.be.ok
+                done()
+            
     describe "saveFile", ->
         it "saves content to fileAdapter storage", (done) ->
             fileAdapter = new InMemoryFileAdapter()
@@ -67,3 +74,10 @@ describe "FileHelper Tests", ->
         it "fails on empty handler", ->
             f = () -> fileHelper.saveFile(data.fileName, data.content, null)
             f.should.throw(assert.AssertionError)
+            
+        it "calls callback on error", (done) ->
+            inMemoryFileAdapter = new InMemoryFileAdapter(false, true)
+            fileHelper = new FileHelper(inMemoryFileAdapter)
+            fileHelper.saveFile data.fileName, data.content, (err, data) ->
+                err.should.be.ok
+                done()

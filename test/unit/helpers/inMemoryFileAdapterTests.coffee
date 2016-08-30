@@ -19,3 +19,17 @@ describe "InMemoryFileAdapter Tests", ->
         inMemoryFileAdapter.loadFile fileName, (err, data) ->
             data.should.be.equal(content)
             done()
+            
+    it "returns error on file load if option is enabled", (done) ->
+        inMemoryFileAdapter = new InMemoryFileAdapter(true, false)
+        fileName = "file.txt"
+        inMemoryFileAdapter.loadFile fileName, (err, data) ->
+            err.should.be.ok
+            done()
+            
+    it "returns error on file save if option is enabled", (done) ->
+        inMemoryFileAdapter = new InMemoryFileAdapter(false, true)
+        fileName = "file.txt"
+        inMemoryFileAdapter.saveFile fileName, null, (err, data) ->
+            err.should.be.ok
+            done()
