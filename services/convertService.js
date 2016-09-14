@@ -26,13 +26,14 @@ var convertService = function(fileHelper, pluginService) {
                 } 
                 data = csvHelper.removeEmptyRows(data);
                 if (!model.hasHeaderRow) data = csvHelper.addFakeHeaderRow(data);
-                model.resultFileName = model.fileName + "_output";    
+                model.resultFileName = model.fileName + "_output_new";    
                 fileHelper.saveFile(model.resultFileName, data, function(err) 
                 { 
                     if (err) {
                         raiseError(err, model, next);
                         return;
                     }
+                    model.success = true;
                     next(null, model);
                 });
             });

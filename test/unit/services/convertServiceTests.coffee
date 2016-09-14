@@ -73,7 +73,6 @@ describe "ConvertService tests", ->
         expectedContent = "Column 1,Column 2,Column 3,Column 4,Column 5,Column 6\n" + expectedContentWithoutHeader
         buffer = new Buffer(content)
         content64 = buffer.toString('base64')
-        outputFilename = fileName + "_output"
         
         
     describe "convert", ->
@@ -90,7 +89,9 @@ describe "ConvertService tests", ->
         it "parses csv input correctly and saves file", (done) ->
             inMemoryFileAdapter.files[fileName] = content64
             convertService.convert fileName, pluginId, options, (err, data) ->
-                inMemoryFileAdapter.files[outputFilename].should.be.equal(expectedContent)
+                inMemoryFileAdapter.files[data.resultFileName].should.be.equal(expectedContent)
+                data.resultFileName.should.be.equal(fileName + "_output_new")
+                data.success.should.be.true
                 done()
                 
         it "works correct after error on file save", (done) ->
@@ -108,7 +109,7 @@ describe "ConvertService tests", ->
             inMemoryFileAdapter.files[fileName] = content64
             options[2].values[0].isSelected = true # hasHeaderRow => true
             convertService.convert fileName, pluginId, options, (err, data) ->
-                inMemoryFileAdapter.files[outputFilename].should.be.equal(expectedContentWithoutHeader)
+                inMemoryFileAdapter.files[data.resultFileName].should.be.equal(expectedContentWithoutHeader)
                 done()
                 
         it "returns failed result on convert handler error", (done) ->
