@@ -25,9 +25,7 @@ var convertService = function(fileHelper, pluginService) {
                     return;
                 } 
                 data = csvHelper.removeEmptyRows(data);
-                if (!model.hasHeaderRow) {
-                    data = csvHelper.addFakeHeaderRow(data);
-                }
+                if (!model.hasHeaderRow) data = csvHelper.addFakeHeaderRow(data);
                 model.resultFileName = model.fileName + "_output";    
                 fileHelper.saveFile(model.resultFileName, data, function(err) 
                 { 
